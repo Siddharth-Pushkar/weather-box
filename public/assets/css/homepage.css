@@ -70,6 +70,46 @@ main {
     color: #555;
 }
 
+/* CSS for Current Weather and Forecast Boxes */
+.current-weather, .forecast-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+}
+
+.forecast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forecast-boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.forecast-box {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 18%;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#current-weather-box {
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+
 
 .container {
     width: 90%;
@@ -97,12 +137,12 @@ main {
   }
   @media (max-width: 768px) {
     .box {
-      flex: 1 1 calc(50% - 10px); /* 2 boxes per row on smaller screens */
+      flex: 1 1 calc(50% - 10px); 
     }
   }
   @media (max-width: 480px) {
     .box {
-      flex: 1 1 100%; /* 1 box per row on mobile */
+      flex: 1 1 100%;
     }
   }
 
@@ -136,4 +176,5 @@ button {
 
 #weather-result {
     margin-top: 20px;
+
 }

@@ -25,52 +25,56 @@
 
     <!-- Main Content -->
     <main>
-        <section class="weather-info">
-            <h2>Welcome to the Weather Forecast</h2>
-            <p>Get real-time updates on weather conditions in your area.</p>
-        </section>
-    </main>
+      <section class="weather-info">
+          <h2>Welcome to the Weather Forecast</h2>
+          <p>Get real-time updates on weather conditions in your area.</p>
+      </section>
+
+      <br>
+      <br>
+      <br>
 
 
-    <div class="container2">
+      <div class="container2">
         <h1>Weather Forecast</h1>
         <input type="text" id="city" placeholder="Enter city name" />
         <button id="search">Search</button>
         <div id="weather-result"></div>
-    </div>
-    <br>
-    <br>
-    <br>
-     
-
-    <div class="container">
-        <div class="box">
-          <h2>Box 1 Title</h2>
-          <p>This is some content inside Box 1. It can be any text or even an image.</p>
-        </div>
-        <div class="box">
-          <h2>Box 2 Title</h2>
-          <p>This is some content inside Box 2. Add your own text here.</p>
-        </div>
-        <div class="box">
-          <h2>Box 3 Title</h2>
-          <p>Box 3 content goes here. You can also style this text differently if needed.</p>
-        </div>
-        <div class="box">
-          <h2>Box 4 Title</h2>
-          <p>Write some content for Box 4 here. You can adjust the layout with more content.</p>
-        </div>
-        <div class="box">
-          <h2>Box 5 Title</h2>
-          <p>This is some content inside Box 5. Keep the content brief for best results.</p>
-        </div>
-        <div class="box">
-          <h2>Box 6 Title</h2>
-          <p>Box 6 content can be anything from text to images or other elements.</p>
-        </div>
+      </div> 
+  
+  
+      <!-- Current Weather Box -->
+      <div class="current-weather">
+          <h3>Current Weather</h3>
+          <div id="current-weather-box">
+              <!-- Weather data will be dynamically inserted here -->
+          </div>
       </div>
+  
+      <!-- Forecast Boxes -->
+      <div class="forecast-container">
+          <h3>5-Day Forecast</h3>
+          <div class="forecast-boxes">
+              <!-- The following divs represent individual forecast days -->
+              <div class="forecast-box" id="day1"></div>
+              <div class="forecast-box" id="day2"></div>
+              <div class="forecast-box" id="day3"></div>
+              <div class="forecast-box" id="day4"></div>
+              <div class="forecast-box" id="day5"></div>
+          </div>
+      </div>
+  </main>
 
-      <script src="./assets/js/script.js"></script> <!-- Link to JavaScript -->
+  <button id="logout">Logout</button>
+
+  <script>
+      document.getElementById('logout').addEventListener('click', async () => {
+          await fetch('/logout', { method: 'POST' });
+          window.location.href = '/login.html'; // Redirect to login page after logging out
+      });
+  </script>
+
+  <script src="./assets/js/script.js"></script> <!-- Link to JavaScript -->
 
 </body>
 </html>
