@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/homepage.html'));
 });
 
-// API endpoint to get weather data
+// API endpoint to get the current weather
 app.get('/weather', async (req, res) => {
     const city = req.query.city;
     const apiKey = process.env.WEATHER_API_KEY;
@@ -24,10 +24,25 @@ app.get('/weather', async (req, res) => {
         const response = await axios.get(url);
         res.json(response.data);
     } catch (error) {
-        res.status(500).send('Error fetching data');
+        res.status(500).send('Error fetching current weather data');
     }
 });
 
+// API endpoint for the 5-day weather forecast
+app.get('/forecast', async (req, res) => {
+    const city = req.query.city;
+    const apiKey = process.env.WEATHER_API_KEY;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+
+    try {
+        const response = await axios.get(url);
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).send('Error fetching forecast data');
+    }
+});
+
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
